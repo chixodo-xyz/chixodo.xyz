@@ -47,10 +47,10 @@ Using Names:
 
 Using Pinata:
 
->Make sure you have your pinata api key ready and saved in a file that looks like this:
->PinataAPIKey="asdf1234..."
->PinataAPISecret="asdf1234..."
->PinataJWT="asdf1234ASDF..."
+>Make sure you have your pinata api key ready and saved in a file that looks like this:  
+>PinataAPIKey="asdf1234..."  
+>PinataAPISecret="asdf1234..."  
+>PinataJWT="asdf1234ASDF..."  
 
 ```bash
 source dist/pinata-api-key.txt
