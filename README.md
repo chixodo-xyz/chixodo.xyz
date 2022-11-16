@@ -58,7 +58,7 @@ curl --location --request POST "https://api.pinata.cloud/pinning/pinByHash" \
 --header "Authorization: Bearer $PinataJWT" \
 --header "Content-Type: application/json" \
 --data-raw "{
-    \"hashToPin\": \"QmcDkBYXe2qZ9Qvb1zTDpEvD7QxMWuVBpawt3wfjBnQ1W8\",
+    \"hashToPin\": \"[INSERT IPFS CIDv1 HASH]\",
     \"pinataMetadata\": {
         \"name\": \"Chixodo.xyz\"
     }
