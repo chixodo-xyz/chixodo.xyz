@@ -1,0 +1,50 @@
+/*
+style.css
+description: adds style to webpage
+version: 16.11.2022
+*/
+
+html {
+    background: rgb(243, 209, 92);
+    font-family: monospace, sans-serif
+}
+
+#logo svg, #logo img {
+    max-width: 100%;
+    height: 250px;
+}
+
+#footer {
+    margin-top: 80px;
+}
+
+#footer .divider {
+    border-top: solid 1px;
+    margin: 10px 0px;
+}
+
+.colorbox {
+    height: 40px;
+    width: 40px;
+    margin: 1px;
+    float: left
+}
+
+ul, li {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0px;
+    padding: 0px
+}
+
+a, a:visited, a:active, a:hover, a:focus, a:focus-within, a:focus-visible {
+    color: inherit;
+}
+
+.small {
+    font-size: 0.8em;
+}
+
+h2 {
+    font-size: 2em;
+}
