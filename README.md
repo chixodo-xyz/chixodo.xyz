@@ -23,7 +23,7 @@ ipfs key import chixodo.xyz dist/chixodo.xyz.key
 2. Add Webpage to ipfs and publish
 
 ```bash
-ipfsnamehash=$(ipfs name publish --quieter --key=chixodo.xyz $( ipfs add --recursive --ignore-rules-path=.gitignore --quieter . ))
+ipfsnamehash=$(ipfs name publish --quieter --lifetime "2190h" --key=chixodo.xyz $( ipfs add --recursive --ignore-rules-path=.gitignore --quieter . ))
 echo "Published to $ipfsnamehash"
 echo "DNS Record template:"
 echo "_dnslink 3600 IN TXT dnslink=/ipns/$ipfsnamehash"
