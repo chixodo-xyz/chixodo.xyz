@@ -28,7 +28,7 @@ jobs:
     - name: Prepare IPFS Key
       run: |
         echo -n "${{ secrets.IPFS_KEY }}" > ipfs-deploy-key.pem
-        npx jsipfs key import chixodo.xyz --input=ipfs-deploy-key.pem
+        npx jsipfs key import chixodo.xyz --input=ipfs-deploy-key.pem --passin=${{ secrets.IPFS_KEY_PASSWORD }}
         rm ipfs-deploy-key.pem -f
 
     - name: Start ipfs daemon
