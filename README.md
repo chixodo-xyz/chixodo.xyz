@@ -15,6 +15,7 @@ ipfs daemon > dist/ipfs.log &
 #ipfs key gen --size 2048 chixodo.xyz
 #mkdir dist
 #ipfs key export chixodo.xyz -o dist/chixodo.xyz.key
+#ipfs key export chixodo.xyz --format=pem-pkcs8-cleartext -o dist/chixodo.xyz.pem
 
 #Import Key:
 ipfs key import chixodo.xyz dist/chixodo.xyz.key

@@ -1,0 +1,51 @@
+name: Deploy
+
+on: 
+  workflow_dispatch:
+
+jobs:
+
+  deploy:
+    timeout-minutes: 30
+    name: Deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - name: Preparation
+      uses: actions/checkout@v3
+
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        registry-url: https://registry.npmjs.org/
+
+    - name: Install and prepare dependencies
+      run: |
+        npm ci
+        npx jsipfs init
+
+    - name: Prepare IPFS Key
+      run: |
+        echo -n "${{ secrets.IPFS_KEY }}" > ipfs-deploy-key.pem
+        npx jsipfs key import chixodo.xyz --input=ipfs-deploy-key.pem
+        rm ipfs-deploy-key.pem -f
+
+    - name: Start ipfs daemon
+      run: |
+        npx jsipfs daemon > ipfs.log &
+        sleep 10
+        npx jsipfs swarm connect ${{ vars.IPFS_NODE_1 }} 
+        sleep 10
+        npx jsipfs swarm connect ${{ vars.IPFS_NODE_2 }} 
+        sleep 10
+
+    - name: Publish to ipfs
+      run: |
+        npx jsipfs name publish --lifetime "${{ vars.IPFS_LIFETIME }}" --key=chixodo.xyz $( npx jsipfs add --recursive --ignore-rules-path=.gitignore --quieter app/ )
+        
+    - name: Pin via Pint
+      run: |
+        JWTToken=$(curl -s -u ${{ secrets.PINT_USERNAME }}:${{ secrets.PINT_PASSWORD }} -X POST ${{ vars.PINT_URL }}/token | jq -r '.token')
+        curl -s -H "Authorization: Bearer $JWTToken" -X POST ${{ vars.PINT_URL }}pins/ipfs/$( npx jsipfs add --recursive --quieter app/ ) | jq
+        sleep 60
