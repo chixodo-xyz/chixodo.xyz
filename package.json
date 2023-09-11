@@ -1,0 +1,26 @@
+{
+  "name": "Chixodo",
+  "version": "1.0.0",
+  "description": "Website for Chixodo Cluster",
+  "private": true,
+  "main": "index.html",
+  "directories": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server app/ -p 0 -a localhost -c-1 -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chixodo-xyz/chixodo-xyz.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/chixodo-xyz/chixodo-xyz/issues"
+  },
+  "homepage": "https://github.com/chixodo-xyz/chixodo-xyz#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "ipfs": "^0.66.0"
+  }
+}
