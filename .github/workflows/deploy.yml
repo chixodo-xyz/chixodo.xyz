@@ -42,7 +42,7 @@ jobs:
 
     - name: Publish to ipfs
       run: |
-        npx jsipfs name publish --lifetime "${{ vars.IPFS_LIFETIME }}" --key=chixodo.xyz $( npx jsipfs add --recursive --ignore-rules-path=.gitignore --quieter app/ )
+        npx jsipfs name publish --lifetime "${{ vars.IPFS_LIFETIME }}" --key=chixodo.xyz $( npx jsipfs add --recursive --quieter app/ )
         
     - name: Pin via Pint
       run: |
