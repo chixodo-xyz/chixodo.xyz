@@ -1,14 +1,9 @@
 # Distribution / packaging
 _deployment/
-dist/
-build/
-
-# Git und Repo
-.git
 
 # npm
 node_modules/
 
-# Git und Repo
+# Git und IDE
 .git
 *.sublime-workspace
