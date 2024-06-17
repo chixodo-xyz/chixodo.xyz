@@ -37,8 +37,6 @@ jobs:
         sleep 10
         _deployment/kubo/ipfs swarm connect ${{ vars.NODE_1 }} 
         sleep 10
-        _deployment/kubo/ipfs swarm connect ${{ vars.NODE_2 }} 
-        sleep 10
 
     - name: Publish to ipfs
       run: |
